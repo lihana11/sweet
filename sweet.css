@@ -1,0 +1,87 @@
+body {
+    background-color: #000000;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    height: 100vh;
+    overflow: hidden;
+    margin: 0;
+    perspective: 1000px;
+    font-family: sans-serif;
+}
+
+/* Question Screen Styles */
+#secret-screen {
+    text-align: center;
+    animation: fadeIn 1s ease-in-out;
+}
+
+.secret-text {
+    color: #ffffff;
+    font-size: 1.8rem;
+    margin-bottom: 30px;
+    text-shadow: 0 0 10px rgba(255, 255, 255, 0.3);
+}
+
+/* Glowing Yes Button */
+#yes-btn {
+    background-color: #ea80b0;
+    color: white;
+    border: none;
+    padding: 12px 35px;
+    font-size: 1.2rem;
+    font-weight: bold;
+    border-radius: 25px;
+    cursor: pointer;
+    box-shadow: 0 0 15px #ea80b0;
+    transition: transform 0.2s, box-shadow 0.2s;
+}
+
+#yes-btn:hover {
+    transform: scale(1.1);
+    box-shadow: 0 0 25px #ea80b0, 0 0 10px #fff;
+}
+
+@keyframes fadeIn {
+    from { opacity: 0; transform: translateY(-10px); }
+    to { opacity: 1; transform: translateY(0); }
+}
+
+/* 3D Moving Heart Canvas */
+#ui {
+    position: relative;
+    transform-style: preserve-3d;
+    width: 100%;
+    height: 100%;
+    transform: rotateX(25deg) rotateY(-10deg); 
+}
+
+#ui .love_word {
+    color: #ea80b0;
+    font-size: 1.3rem;
+    font-family: sans-serif;
+    transform: translateY(-50%) rotateZ(-30deg);
+    text-shadow: 0 0 10px #fff, 0 0 20px #ea80b0;
+    letter-spacing: 2px;
+    white-space: nowrap;
+    display: inline-block;
+    font-weight: bold;
+}
+
+#ui .love_horizontal {
+    position: absolute;
+    transform-style: preserve-3d;
+    /* CHANGED: Switched from 8000ms to 4000ms to make it twice as fast */
+    animation: horizontal 4000ms infinite alternate ease-in-out;
+    /* CHANGED: Adjusted delay to match the faster wave rhythm */
+    animation-delay: calc(var(--i) * -75ms);
+}
+
+@keyframes horizontal {
+    0% {
+        transform: translate3d(-50%, -50%, 0px) translateX(-45px);
+    }
+    100% {
+        transform: translate3d(-50%, -50%, 0px) translateX(45px);
+    }
+}

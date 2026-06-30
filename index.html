@@ -1,0 +1,30 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>A Secret For You</title>
+    <link rel="stylesheet" href="sweet.css">
+</head>
+<body>
+
+    <!-- Intro Question Screen -->
+    <div id="secret-screen">
+        <h1 class="secret-text">Hey, you wanna know a secret!! 👉👈</h1>
+        <button id="yes-btn" onclick="revealSecret()">Yes</button>
+    </div>
+
+    <!-- Center Heart Container (Hidden at first) -->
+    <div id="ui" style="display: none;"></div>
+
+    <script src="script.js"></script>
+
+    <!-- Interactive Button Logic -->
+    <script>
+        function revealSecret() {
+            document.getElementById('secret-screen').style.display = 'none';
+            document.getElementById('ui').style.display = 'block';
+        }
+    </script>
+</body>
+</html>
